@@ -467,8 +467,8 @@ The repository (`AbbyNode/sts2-painter`) has the following scaffolding in place:
 >
 > 1. Subscribe to the STS1 mod on Steam and browse the in-game card library, OR
 > 2. Download the mod's `.jar` file via Steam Workshop and extract the localization JSON files (jar files are ZIP archives — the localization data is in a `localization/eng/` folder inside), OR
-> 3. Use [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) to download: `steamcmd +login anonymous +workshop_download_item 646570 2808845989 +quit` — requires whitelisting `client-update.steamstatic.com` and `*.steamserver.net` domains, OR
-> 4. Use [DepotDownloader](https://github.com/SteamRE/DepotDownloader) to download: `DepotDownloader -app 646570 -pubfile 2808845989` — requires whitelisting `*.steamserver.net` domain and Steam CM server IPs on port 443/27017-27050, OR
+> 3. Use [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) to download: `steamcmd +login anonymous +workshop_download_item 646570 2808845989 +quit` — requires whitelisting `*.steamcontent.com` (the CDN that serves actual file content), OR
+> 4. Use [DepotDownloader](https://github.com/SteamRE/DepotDownloader) to download: `DepotDownloader -app 646570 -pubfile 2808845989` — requires whitelisting `*.steamcontent.com`, OR
 > 5. Contact Diamsword (the mod author) directly via [Steam Workshop](https://steamcommunity.com/id/diamsword/myworkshopfiles/?appid=646570) for permission and card data
 >
 > **Confirmed data summary:**
@@ -489,9 +489,9 @@ The repository (`AbbyNode/sts2-painter`) has the following scaffolding in place:
 > | `steamcommunity.com` | Workshop pages | ✅ Accessible |
 > | `store.steampowered.com` | Store pages | ✅ Accessible |
 > | `steamcdn-a.akamaihd.net` | SteamCMD installer download | ✅ Accessible |
-> | `client-update.steamstatic.com` | SteamCMD self-update/verification | ❌ Blocked |
-> | `*.steamserver.net` | Steam CM (Connection Manager) servers | ❌ Blocked |
-> | Steam CM IPs (162.254.x.x, 205.196.x.x) on ports 443/27017-27050 | Direct CM connections | ❌ Blocked |
+> | `client-update.steamstatic.com` | SteamCMD self-update/verification | ✅ Accessible |
+> | `*.steamserver.net` | Steam CM (Connection Manager) servers | ✅ Accessible |
+> | `*.steamcontent.com` | Steam CDN — serves actual depot/workshop file content (e.g. `cache3-lax1.steamcontent.com`) | ❌ Blocked — **this is the remaining blocker**. SteamCMD authenticates successfully but file download times out. |
 
 ---
 
