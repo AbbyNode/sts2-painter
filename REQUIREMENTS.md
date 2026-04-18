@@ -47,8 +47,8 @@
 | **Pronouns** | she/her (STS1) — changed to they/them for STS2 |
 | **Starting HP** | 70 *(was temporarily raised to 85 during early balancing, then reverted)* |
 | **Color** | White (#ffffff) |
-| **Starting Deck** | 5× Strike, 5× Defend, 1× Neo-Neutralize |
-| **Starting Relic** | Custom base relic — effect resets on deck shuffle (see [Relics](#relics)) |
+| **Starting Deck** | 5× Strike, 5× Defend, 1× Neo-Neutralize *(originally included Darken Drawing + Brushing Bash instead)* |
+| **Starting Relic** | Broken Brush — effect resets on deck shuffle (see [Relics](#relics)) |
 | **Card Energy** | 3 energy per turn (standard) |
 
 ---
@@ -202,7 +202,9 @@ The mod adds **76 collectible cards** total: 20 Common, 39 Uncommon, 17 Rare.
 |---|---|---|---|---|
 | **Strike** | Attack | 1 | Deal 6 damage | Standard starter |
 | **Defend** | Skill | 1 | Gain 5 Block | Standard starter |
-| **Neo-Neutralize** | Skill | 0 | Apply 1 Weak. Paint 1 Gray. | Replaced the original "Darken Drawing" starter. New art was added in a later update. Painting Gray is an intentional downside — starts with a small penalty. |
+| **Neo-Neutralize** | Skill | 0 | Apply 1 Weak. Paint 1 Gray. | Current starter (replaced Darken Drawing). New art was added in a later update. Painting Gray is an intentional downside. |
+| ~~**Darken Drawing**~~ | Skill | 1 | Darken the Canvas. | Original starter card, **removed from starting deck** and replaced by Neo-Neutralize. jhleviathan: "Darken Drawing... you are buffing your painting for 2 energy (1 to play the card and 1 because the cost of painting is increased), which means you are doing 8-16 damage for 2 energy." May have been moved to the collectible pool. |
+| ~~**Brushing Bash**~~ | Attack | 2 | Deal ~19 damage (with starter relic). Paint colors to Canvas. | Original starter card alongside Darken Drawing. jhleviathan: "Brushing Bash which now deals 19 damage for 3 energy (2 to play the card itself and 1 to play the painting) with the starting relic. 19 damage for 3 is almost the same as playing 3 unupgraded strikes." The 19 damage includes the relic bonus; base damage is lower. |
 
 ### Common Cards (20)
 
@@ -213,41 +215,43 @@ The mod adds **76 collectible cards** total: 20 Common, 39 Uncommon, 17 Rare.
 | 3 | **Cursed Clash** | Attack | 1 | Deal 7(9) damage. Apply Cursed to target. | ✅ |
 | 4 | **Prismatic Puncture** | Attack | 1 | Deal 4(6) damage. Paint 1 color of your choice. | ✅ |
 | 5 | **Red Rage** | Attack | 1 | Deal damage twice (instant effect). Paint 1 Red. *(Follows "do color effect + paint color" pattern)* | ✅ |
-| 6 | **Purple Pain** | Skill/Attack | 1 | Deal damage and/or gain Block (instant effect). Paint 1 Purple. *(Follows "do color effect + paint color" pattern)* | ✅ |
-| 7 | **Grumpy Graffiti** | Attack | 1 | Deal ~12 damage. Chromatic: Paint 1 Gray. *(Comparable to Wild Strike — high damage common with conditional downside. Was changed in a balance patch.)* | ✅ |
+| 6 | **Purple Pain** | Attack | 1 | Deal damage AND gain Block (instant effect). Paint 1 Purple. *(Follows "do color effect + paint color" pattern. Applies ~3 Curse to single target.)* | ✅ |
+| 7 | **Grumpy Graffiti** | Attack | 1 | Deal ~12 damage. Chromatic: Paint 1 Gray. *(Comparable to Wild Strike — high damage common with conditional downside. Was changed in a balance patch. Jezzared: "either strictly better if you have anything other than two paint colors, or strictly worse if you have two colors on the canvas".)* | ✅ |
 | 8 | **Double Draw** | Skill | 1 | Draw 2 cards. *(Buffed in balance patch)* | ✅ |
-| 9 | **Helping Harsh** | Skill/Attack | ❓ | *(New card added in balance patch — exact effect not publicly documented)* | 🔶 |
-| 10 | **Soft Stimulation** | Skill | ❓ | *(Buffed in balance patch — paint/block related. Exact effect not publicly documented)* | 🔶 |
-| 11–20 | *(10 additional commons)* | Various | ❓ | *Names and effects not publicly documented. Based on naming patterns and mechanics, likely include more single-color paint cards (e.g., Blue-themed block+paint, Yellow-themed draw+paint, Orange-themed attack+draw+paint), additional "Contrasting" variants, and Clear/Chromatic synergy commons.* | ❓ |
+| 9 | **Brushing Bash** | Attack | 2 | Deal ~19 damage (with starter relic). Paint colors. *(jhleviathan: "19 damage for 3 energy (2 to play the card itself and 1 to play the painting) with the starting relic" — suggesting the card itself costs 2 and the resulting painting costs 1 more.)* | ✅ |
+| 10 | **Helping Harsh** | Attack/Skill | ❓ | *(New card added in balance patch — exact effect not publicly documented)* | 🔶 |
+| 11 | **Soft Stimulation** | Skill | ❓ | *(Buffed in balance patch — paint/block related. Exact effect not publicly documented)* | 🔶 |
+| 12–20 | *(9 additional commons)* | Various | ❓ | *Names and effects not publicly documented. Based on naming patterns (alliterative naming convention used by all confirmed cards) and mechanics, likely include more single-color paint cards for each color, and Clear/Chromatic synergy commons.* | ❓ |
 
 ### Uncommon Cards (39)
 
 | # | Card Name | Type | Cost | Effect | Status |
 |---|---|---|---|---|---|
 | 1 | **Crushing Canvas** | Attack | ❓ | Deal damage based on the number of colors on the Canvas. Upgraded version (Crushing Canvas+) was buffed. | ✅ |
-| 2 | **Sweeping Sadness** | Skill | ❓ | Gain 12(15) Block. Add 1 Gray Gloom to your hand. *(Strong block with Gray downside)* | ✅ |
-| 3 | **Palette Pick** | Skill | ❓ | Choose a color to Paint. If you choose Yellow, Exhaust this card. *(Key combo enabler — can paint any color including Yellow for draw, but Yellow exhausts it as a cost. Does NOT exhaust for other colors, enabling repeated use and infinite potential.)* | ✅ |
+| 2 | **Sweeping Sadness** | Skill | 2 | Gain 12(15) Block. Apply 4 Cursed to target. Add 1 Gray Gloom to your hand. *(2 energy cost confirmed from Balance thread. Jezzared: "2 energy and just gained me 11 block and applied 4 curse without the wound" — suggesting the Wound via Gray Gloom is the card's downside for its combined block+curse power.)* | ✅ |
+| 3 | **Palette Pick** | Skill | ❓ | Choose a color to Paint. If you choose Yellow, Exhaust this card. *(Key combo enabler — can paint ANY color including Gray. Does NOT exhaust for non-Yellow colors, enabling repeated use. SparkleApple: "I mostly spam 0 costs draw 2+ thanks to palette pick".)* | ✅ |
 | 4 | **Iconic Idea** | Skill | ❓ | Paint 1 Green. Gain 3 Block. *(Was "Paint more Green" before rebalance — now paints 1 less Green but gives Block to compensate)* | ✅ |
 | 5 | **Colored Collision** | Attack | ❓ | *(Buffed in balance patch — paint/damage related. Exact effect not publicly documented)* | 🔶 |
 | 6 | **Ending Effort** | Skill | ❓ | *(Buffed in balance patch. Exact effect not publicly documented)* | 🔶 |
 | 7 | **Innovating Ink** | Skill | ❓ | *(Buffed in balance patch — paint/ink related. Exact effect not publicly documented)* | 🔶 |
-| 8 | **Rainbow Razor** | Attack | ❓ | *(Buffed in balance patch — rainbow/multi-color damage. Likely paints multiple random colors or deals damage based on number of unique colors. "Rainbow paintings" are referenced by community as "very fun".)* | 🔶 |
+| 8 | **Rainbow Razor** | Attack | ❓ | *(Buffed in balance patch — rainbow/multi-color damage. "Rainbow paintings" are referenced by Jezzared as "very fun" but "too consistent" since colors were reduced from 10 to 7.)* | 🔶 |
 | 9 | **Safe Space** | Skill | ❓ | *(Buffed in balance patch — defensive card. Exact effect not publicly documented)* | 🔶 |
 | 10 | **Satanic Surge** | Skill | ❓ | Apply Cursed to target. *(Community feedback: "should prevent Curse from going down permanently" — suggesting Cursed may have a decay mechanic that this card should override)* | ✅ |
-| 11 | **Blank Bane** | Skill | ❓ | Clear synergy card. Adds 1 Gray Gloom to your hand. *(Jezzared: "I'd rather follow Blank Bane up with any of the rare cards that paint a lot, or a couple of the commons that paint two, or Palette Pick")* | ✅ |
-| 12 | **Pollock's Potluck** | Skill | ❓ | Paint multiple random colors. First color painted is now Red (was any color before). Upgraded version: Innate. *(Named after Jackson Pollock. jhleviathan: "The upgraded version combined with starter relic makes one of the most frustrating anti-synergy" — because Innate means it's played first each combat, and random gray could be first color without the Red-first fix.)* | ✅ |
+| 11 | **Blank Bane** | Attack | ❓ | Apply 3 Cursed to a single target. Clear: Apply 3 Cursed to ALL enemies instead. Adds 1 Gray Gloom to your hand. *(Jezzared: "Nothing applies as much curse as Blank Bane does, even to single targets... The base card, 3 curse to one target, would put it more in line with the other curse cards at its cost (Cursed Clash, Purple Pain)")* | ✅ |
+| 12 | **Pollock's Potluck** | Skill | ❓ | Paint multiple random colors. First color painted is now Red (was any color before). Upgraded version: Innate. *(Named after Jackson Pollock. jhleviathan: "The upgraded version combined with starter relic makes one of the most frustrating anti-synergy" — because Innate means it's played first each combat, wasting the once-per-shuffle relic bonus.)* | ✅ |
 | 13 | **Super Schooling** | Skill | ❓ | Gain Block. *(Reworked — was originally a different type, now is a block-giving Skill)* | ✅ |
 | 14 | **Many Minds** | Power | ❓ | *(New card added in update alongside Glorious Gallery rework. Exact power effect not publicly documented)* | 🔶 |
-| 15–39 | *(25 additional uncommons)* | Various | ❓ | *Names and effects not publicly documented. Based on mechanics, likely include: more Clear/Chromatic synergy cards, additional Cursed-application cards, multi-paint cards, canvas manipulation cards, and cards following the "color action + paint" pattern for colors not yet covered (Orange, Green, Blue individual paint cards).* | ❓ |
+| 15 | **Yellow Yowling** | Skill | ❓ | Paint Yellow. Provides a TURBO-like power spike. *(Jezzared: "the best designed card the artist has involving gray is actually Yellow Yowling. It provides that TURBO-esque spike of power that players gravitate towards, at the cost of lots of clutter." Likely paints Yellow — draws cards — but also paints Gray, creating short-term power at cost of deck pollution.)* | ✅ |
+| 16–39 | *(24 additional uncommons)* | Various | ❓ | *Names and effects not publicly documented. Based on naming convention (alliterative), likely include: more Clear/Chromatic synergy cards, additional Cursed-application cards, multi-paint cards, canvas manipulation cards, and cards following the "color action + paint" pattern for remaining colors.* | ❓ |
 
 ### Rare Cards (17)
 
 | # | Card Name | Type | Cost | Effect | Status |
 |---|---|---|---|---|---|
 | 1 | **Mysterious Masterpiece** | Power | ❓ | *(Temporarily removed due to save/reload bug where the card would be replaced by Madness. Later added back. Exact power effect not publicly documented.)* | 🔶 |
-| 2 | **Glorious Gallery** | Power | ❓ | *(Reworked with "a better effect" per Diamsword. Updated in same patch as Many Minds addition. Exact effect not publicly documented.)* | 🔶 |
+| 2 | **Glorious Gallery** | Power | ❓ | Returns Paintings from discard/exhaust pile to hand (similar to Defect's All for One). *(Reworked with "a better effect" per Diamsword. jhleviathan: "imagine the defect card All for One now returns all your 1-cost cards instead of 0" — confirming the original effect returned 0-cost paintings, which became useless when paintings changed to cost 1. The rework presumably updated the cost filter.)* | ✅ |
 | 3 | **Hue Huffer** | Power | ❓ | Each time you create a Painting, Paint 1 additional random color on it. Stacks with multiple plays. *(Bug reported: didn't stack properly even with multiple plays, only gave 1 paint per painting regardless.)* | ✅ |
-| 4–17 | *(14 additional rares)* | Various | ❓ | *2 rare cards were temporarily removed during balancing. Jezzared mentions "rare cards that paint a lot" as desirable follow-ups to Blank Bane, suggesting some rares are heavy-painting cards. Community mentions paint synergies involving: "painting based on the number of paintings played", "drawing extra cards when you draw a painting", "dealing damage when you draw a painting", "dealing more damage the more paintings you have" (from Taril's comment).* | ❓ |
+| 4–17 | *(14 additional rares)* | Various | ❓ | *2 rare cards were temporarily removed during balancing. Jezzared mentions "rare cards that paint a lot" as desirable follow-ups to Blank Bane, suggesting some rares are heavy-painting cards. Community mentions painting-synergy powers: "painting based on the number of paintings played", "drawing extra cards when you draw a painting", "dealing damage when you draw a painting", "dealing more damage the more paintings you have" (Taril). Some rares likely include cards like Darken Drawing (original starter, moved to collectible pool or removed).* | ❓ |
 
 ### Status / Generated Cards
 
@@ -267,13 +271,13 @@ The mod adds **76 collectible cards** total: 20 Common, 39 Uncommon, 17 Rare.
 
 | Relic Name | Rarity | Effect (Reconstructed) | Status |
 |---|---|---|---|
-| **Artist's Brush** (name TBD) | Starter | Canvas/painting synergy with an effect that **resets on deck shuffle**. Likely: "The first Painting you create each shuffle cycle has enhanced effects" or "The first time you paint each shuffle, paint an additional color." *(The "resets on deck shuffle" wording from Diamsword was specifically noted as a buff. jhleviathan noted frustrating anti-synergy between this relic and Pollock's Potluck+ (Innate) — the Innate card would trigger the relic effect on turn 1 before other cards, potentially wasting the once-per-shuffle bonus on random/gray paint.)* | ❓ Name needs verification |
+| **Broken Brush** | Starter | Enhances the first Painting you create after each deck shuffle. *(Effect "resets on deck shuffle" per Diamsword. jhleviathan: "Brushing Bash deals 19 damage for 3 energy with the starting relic" — suggesting the relic adds damage/effectiveness to the first painting created. Anti-synergy with Pollock's Potluck+ (Innate) noted: the Innate card triggers first each combat, potentially wasting the relic bonus on random paint.)* | ✅ |
 
 ### Boss Relics
 
 | # | Relic Name | Rarity | Effect | Status |
 |---|---|---|---|---|
-| 1 | *(Boss Relic 1)* | Boss | *(Not publicly documented)* | ❓ Need extraction |
+| 1 | **Fixed Brush** | Boss | Upgraded version of Broken Brush. *(Bug reported: "I boss swapped into the Broken Brush. I then picked Fixed Brush from the first boss chest. The Fixed Brush doesn't do anything." — confirming the name and that it's offered as a boss relic upgrade. The bug was three-fold: boss swap shouldn't give upgraded relic, picking a second upgrade shouldn't be possible, and the second brush had no effect.)* | ✅ |
 | 2 | *(Boss Relic 2)* | Boss | *(Not publicly documented)* | ❓ Need extraction |
 | 3 | *(Boss Relic 3)* | Boss | *(Not publicly documented)* | ❓ Need extraction |
 
@@ -308,7 +312,7 @@ Powers are persistent buffs gained by playing Power-type cards. Known powers in 
 | Power Name | Source Card | Effect | Status |
 |---|---|---|---|
 | **Hue Huffer** | Hue Huffer (Rare) | Each Painting you create has 1 additional random color painted on it. Stacks with multiple plays. | ✅ |
-| **Glorious Gallery** | Glorious Gallery (Rare) | *(Reworked with "a better effect" — exact effect TBD)* | 🔶 |
+| **Glorious Gallery** | Glorious Gallery (Rare) | Returns Paintings from discard/exhaust pile to hand (similar to Defect's All for One). Reworked after paintings changed from 0 to 1 cost. | ✅ |
 | **Many Minds** | Many Minds (Uncommon) | *(New power added in update — exact effect TBD)* | 🔶 |
 | **Mysterious Masterpiece** | Mysterious Masterpiece (Rare) | *(Exact effect TBD — was temporarily removed due to save/reload bug)* | 🔶 |
 | **Cursed** (debuff) | Applied by Cursed Clash, Satanic Surge, etc. | Enemy takes X damage each time the player paints a color onto the Canvas. Does not naturally decrease (unlike Poison). | ✅ |
@@ -368,6 +372,7 @@ Compiled from Diamsword's Steam Workshop comments and changelog (15 updates, May
 | **Mysterious Masterpiece save/reload** | Fixed (card was temporarily removed) | Card was replaced by Madness if you saved and reloaded the game |
 | **Hue Huffer stacking** | Reported, fix unknown | Even if played multiple times, only gave 1 paint per painting instead of stacking |
 | **Infinite combos** | Addressed by cost/limit changes | Multiple players reported easy infinites with 0-cost Green/Yellow paintings. Fixed by making paintings cost 1 and limiting to 1/turn. |
+| **Fixed Brush boss swap** | Reported | Three bugs in one: (1) Boss swap can give Broken Brush as upgraded version, (2) player can pick Fixed Brush from first boss chest even if already holding it, (3) second Fixed Brush has no effect. |
 
 ---
 
@@ -383,18 +388,24 @@ Key feedback themes from Steam discussions (useful for STS2 rebalancing):
 
 ### Weakest Areas
 
-1. **Act 1 on high Ascension** — "The starting deck feels underpowered, struggles against group fights due to lack of cheap AoE, and gremlin nob is a pain because most painting cards are Skills" (jhleviathan)
-2. **Gray color** — "I don't really understand Grey? There doesn't seem to be any easily obtainable synergy with wounds" (Jezzared). Ironclad has Evolve/Fire Breathing for Wound synergy; Artist has nothing comparable.
-3. **Gray Gloom card** — "actually just better to have in hand than it is to play" — playing it creates 3+ dead cards vs 1 dead card unplayed. Community suggests changing to "Paint 3 Gray" for Cursed burst damage synergy.
-4. **Big painting strategy** — "most of the painting synergies seem directed towards 'just spam tons of 0 cost paintings'" with little support for Darken-based big paintings (Taril)
+1. **Act 1 on high Ascension** — "The starting deck feels underpowered, struggles against group fights due to lack of cheap AoE, and gremlin nob is a pain because most painting cards are Skills" (jhleviathan). After paintings changed to cost 1, the early game became much harder: "19 damage for 3 energy is almost the same as playing 3 unupgraded strikes" (jhleviathan on Brushing Bash).
+2. **Gray color** — "I don't really understand Grey? There doesn't seem to be any easily obtainable synergy with wounds" (Jezzared). Ironclad has Evolve/Fire Breathing for Wound synergy; Artist has nothing comparable. Diamsword compared to Defect's Overclock/TURBO: "There is not major synergies with burn or void in Defect."
+3. **Gray Gloom card** — "actually just better to have in hand than it is to play" — playing it creates 3+ dead cards vs 1 dead card unplayed. Community suggests changing to "Paint 3 Gray" for Cursed burst damage synergy. Jezzared's full analysis: "Using it splits it into three wounds (maybe even more depending on if you need to cast that painting again)."
+4. **Big painting strategy** — "most of the painting synergies seem directed towards 'just spam tons of 0 cost paintings'" with little support for Darken-based big paintings (Taril). Diamsword claims "there are in fact tools for big paintings, and that's actually how I play it most of the time."
+5. **Non-Blue defensive options** — "there isn't really anything that provides meaningful protection outside of painting blue" (Suggestions thread). Requested: block from paintings in hand, block when drawing paintings, block based on canvas colors, block proportional to Cursed stacks.
+6. **Downward spiral after 1-cost change** — "The tougher the fight, the more likely you have to use a small painting as a panic button/band aid... your deck will be clogged with weak paintings such as 1 energy block 6 draw a card" (jhleviathan Balance thread)
 
 ### Design Suggestions
 
-- More support for Darken/big painting strategy (currently underused)
-- Better Gray color communication ("the mod poorly communicates gray's intent")
-- Controller/accessibility support for Canvas interactions
-- Smaller Canvas UI option
-- More viable archetypes beyond Purple Chromatic and Cursed
+- More support for Darken/big painting strategy (currently underused). Diamsword says tools exist but community disagrees.
+- Better Gray color communication ("the mod poorly communicates gray's intent"). Jezzared's comprehensive analysis: Gray should lean into canvas mechanics rather than status card generation; "I'm painting only as the artist. The artist should lean into the canvas where possible."
+- Controller/accessibility support for Canvas interactions. Player using "Say The Spire" accessibility mod cannot interact with the Canvas.
+- Smaller Canvas UI option ("reduce the size of the canvas")
+- Painting preview should be visible without clicking twice; hover-to-preview (implemented in later patch). Should still work after 1/turn limit reached.
+- More viable archetypes beyond Purple Chromatic and Cursed. Specifically: defensive options that don't require Blue paint.
+- Chinese localization requested
+- Alliterative card naming convention used for all cards (community noted: "can't even shorten the card name cause literally every card name is an alliteration lol")
+- Community-suggested card name: "Van Cough" — adds Frail/Weak debuff for 2 turns
 
 ---
 
@@ -431,17 +442,17 @@ The repository (`AbbyNode/sts2-painter`) has the following scaffolding in place:
 
 1. **Phase 1: Core Mechanics** — Canvas system, Paint colors, Painting generation, Darken
 2. **Phase 2: Starter Deck** — Strike, Defend, Neo-Neutralize, base relic
-3. **Phase 3: Common Cards** — All 20 common cards (start with confirmed: Contrasting Strike/Guard, Cursed Clash, Prismatic Puncture, Red Rage, Purple Pain, Grumpy Graffiti, Double Draw)
-4. **Phase 4: Uncommon Cards** — All 39 uncommon cards (start with confirmed: Crushing Canvas, Sweeping Sadness, Palette Pick, Iconic Idea, Satanic Surge, Blank Bane, Pollock's Potluck, Super Schooling)
+3. **Phase 3: Common Cards** — All 20 common cards (start with confirmed: Contrasting Strike/Guard, Cursed Clash, Prismatic Puncture, Red Rage, Purple Pain, Grumpy Graffiti, Double Draw, Brushing Bash)
+4. **Phase 4: Uncommon Cards** — All 39 uncommon cards (start with confirmed: Crushing Canvas, Sweeping Sadness, Palette Pick, Iconic Idea, Satanic Surge, Blank Bane, Pollock's Potluck, Super Schooling, Yellow Yowling)
 5. **Phase 5: Rare Cards** — All 17 rare cards (start with confirmed: Hue Huffer, Glorious Gallery, Mysterious Masterpiece)
 6. **Phase 6: Powers** — Hue Huffer, Glorious Gallery, Many Minds, Mysterious Masterpiece, Cursed (debuff)
-7. **Phase 7: Relics** — 1 base + 3 boss relics
+7. **Phase 7: Relics** — Broken Brush (starter) + Fixed Brush (boss) + 2 unknown boss relics
 8. **Phase 8: Potions** — 3 potions
 9. **Phase 9: Polish** — Art, balance, localization, bug fixes, Canvas UI improvements
 
 ### Data Gaps
 
-> ⚠️ **Important:** 27 of 76 collectible card names have been confirmed from public sources (Diamsword's comments, community discussions). The remaining 49 cards have no publicly available names or effects.
+> ⚠️ **Important:** 29 collectible card names have been confirmed from public sources (Diamsword's comments, community discussions, discussion threads). The remaining 47 collectible cards have no publicly available names or effects. Additionally, 5 starter/status/generated card names are confirmed.
 >
 > **Information gathered from:**
 >
@@ -450,19 +461,37 @@ The repository (`AbbyNode/sts2-painter`) has the following scaffolding in place:
 > - [Steam Workshop discussions](https://steamcommunity.com/sharedfiles/filedetails/discussions/2808845989) (4 threads) — Balance, Bugs, Suggestions, Gray Discussion
 > - [Frost Prime YouTube playthrough](https://www.youtube.com/watch?v=9bsf_l5XJuA)
 > - [naoe\_ note.com article](https://note.com/naoe_/n/n6e7bd996c821) — original Vex version mechanics
-> - Community discussions (Jezzared, SparkleApple, jhleviathan, Taril, pisaprofile, etc.)
+> - Community discussions (Jezzared, SparkleApple, jhleviathan, Taril, pisaprofile, drewmarc, etc.)
 >
 > **To get the remaining card data, you will need to:**
 >
 > 1. Subscribe to the STS1 mod on Steam and browse the in-game card library, OR
 > 2. Download the mod's `.jar` file via Steam Workshop and extract the localization JSON files (jar files are ZIP archives — the localization data is in a `localization/eng/` folder inside), OR
-> 3. Use [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) to download: `steamcmd +login anonymous +workshop_download_item 646570 2808845989 +quit`, OR
-> 4. Contact Diamsword (the mod author) directly via [Steam Workshop](https://steamcommunity.com/id/diamsword/myworkshopfiles/?appid=646570) for permission and card data
+> 3. Use [SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD) to download: `steamcmd +login anonymous +workshop_download_item 646570 2808845989 +quit` — requires whitelisting `client-update.steamstatic.com` and `*.steamserver.net` domains, OR
+> 4. Use [DepotDownloader](https://github.com/SteamRE/DepotDownloader) to download: `DepotDownloader -app 646570 -pubfile 2808845989` — requires whitelisting `*.steamserver.net` domain and Steam CM server IPs on port 443/27017-27050, OR
+> 5. Contact Diamsword (the mod author) directly via [Steam Workshop](https://steamcommunity.com/id/diamsword/myworkshopfiles/?appid=646570) for permission and card data
 >
-> **Cards confirmed by name: 27 of 76** (10 Common, 14 Uncommon, 3 Rare)
-> **Cards with exact stat values: 5** (Cursed Clash, Prismatic Puncture, Sweeping Sadness, Strike, Defend)
-> **Relics documented: 1 of 4** (base relic — partial info only)
-> **Potions documented: 0 of 3**
+> **Confirmed data summary:**
+>
+> | Category | Confirmed | Total | Coverage |
+> |---|---|---|---|
+> | Collectible card names | 29 | 76 | 38% |
+> | Cards with exact stat values | 5 | 76 | 7% |
+> | Starter/status card names | 5 | 5 | 100% |
+> | Relics documented | 2 | 4 | 50% |
+> | Potions documented | 0 | 3 | 0% |
+>
+> **Network requirements for SteamCMD/DepotDownloader (tested 2026-04-18):**
+>
+> | Domain | Purpose | Status |
+> |---|---|---|
+> | `api.steampowered.com` | Steam Web API | ✅ Accessible |
+> | `steamcommunity.com` | Workshop pages | ✅ Accessible |
+> | `store.steampowered.com` | Store pages | ✅ Accessible |
+> | `steamcdn-a.akamaihd.net` | SteamCMD installer download | ✅ Accessible |
+> | `client-update.steamstatic.com` | SteamCMD self-update/verification | ❌ Blocked |
+> | `*.steamserver.net` | Steam CM (Connection Manager) servers | ❌ Blocked |
+> | Steam CM IPs (162.254.x.x, 205.196.x.x) on ports 443/27017-27050 | Direct CM connections | ❌ Blocked |
 
 ---
 
