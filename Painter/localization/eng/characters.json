@@ -1,0 +1,17 @@
+{
+  "PAINTER-PAINTER.title": "The Painter",
+  "PAINTER-PAINTER.titleObject": "The Painter",
+  "PAINTER-PAINTER.description": "A wandering artist from beyond the Spire.\nWields the power of creativity in combat.",
+  "PAINTER-PAINTER.pronounSubject": "they",
+  "PAINTER-PAINTER.pronounObject": "them",
+  "PAINTER-PAINTER.pronounPossessive": "theirs",
+  "PAINTER-PAINTER.possessiveAdjective": "their",
+  "PAINTER-PAINTER.goldMonologue": "[sine]These riches could fund a masterpiece...[/sine]",
+  "PAINTER-PAINTER.eventDeathPrevention": "I still have so much left to create.",
+  "PAINTER-PAINTER.aromaPrinciple": "[sine]Every stroke brings me closer...[/sine]",
+  "PAINTER-PAINTER.cardsModifierTitle": "Painter Cards",
+  "PAINTER-PAINTER.cardsModifierDescription": "Painter cards will now appear in rewards and shops.",
+  "PAINTER-PAINTER.banter.alive.endTurnPing": "Just a few more strokes...",
+  "PAINTER-PAINTER.banter.dead.endTurnPing": "..."
+}
+
