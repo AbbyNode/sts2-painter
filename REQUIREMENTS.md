@@ -80,7 +80,7 @@ The original version also had **0-cost paintings** and **no per-turn painting li
 
 Diamsword took over the project with Vex'd's permission and substantially reworked it. Key changes:
 
-- **Simplified to 7 colors** — Red, Blue, Yellow (primary), Green, Aqua, Magenta, Pink (derived), plus Gray and Rainbow (special). Removed the original 10-color system.
+- **Simplified to 9 colors** — Red, Blue, Yellow (primary), Green, Aqua, Magenta, Pink, Purple (each painted directly by specific cards), plus Gray and Rainbow (special). Removed the original 10-color system.
 - **Color mixing system** — the Canvas mixes colors based on what's painted. Primary colors combine into derived effects on the resulting Painting card.
 - **Paintings cost 1 energy** (was 0) — major balance change to prevent infinite combos
 - **Limited to 1 Painting per turn** — another anti-infinite measure
@@ -170,6 +170,8 @@ Cards in the "Contrasting" group each paint 2 different primary colors. The four
 | **Chromatic** | The Chromatic effect of a card activates if the Canvas contains exactly 2 Colors. | Encourages specific 2-color combos; Red+Blue is the strongest archetype |
 | **Clear** | The Clear effect of a card activates if the Canvas is empty. | Encourages strategic play order — use before painting |
 
+> **Note:** Some cards also reference standard STS keywords not specific to The Artist: **Exhaust**, **Retain**, **Innate**, **Ethereal**, **Fleeting** (removed from game on play/discard), **Grave** (plays when exhausted from hand), and **Exhaustive** (from StSLib — can be played a limited number of times before exhausting).
+
 ---
 
 ## Paint Colors
@@ -184,7 +186,7 @@ Cards in the "Contrasting" group each paint 2 different primary colors. The four
 | **Blue** | `#303f9f` | Gain Block | Defense |
 | **Yellow** | `#ffeb3b` | Gain Energy [E]. **Painting auto-exhausts.** | Energy / Tempo |
 
-### Derived Colors
+### Other Colors (painted directly by specific cards)
 
 | Color | Hex Code | Effect on Painting | Theme |
 |---|---|---|---|
@@ -237,7 +239,7 @@ The mod adds **86 collectible cards** (22 Common, 44 Uncommon, 20 Rare) plus 5 B
 | 3 | **Clear Chroma** | Skill | 0 | Clear: Paint 2 random Colors. Chromatic: Paint 1 more of both Colors. | Gains Retain |
 | 4 | **Color Copy** | Skill | 0 | Choose 1 Color on your Canvas to Paint. | Gains Retain |
 | 5 | **Colorful Clobber** | Attack | 1 | Deal 9 damage. Clear: Paint 2 random Colors. | 9→11 damage, 2→3 Colors |
-| 6 | **Contrasting Calm** | Attack | 1 | Deal 4 damage. Paint 1 Blue. Paint 1 Green. | 4→8 damage; gains Retain (loses damage) |
+| 6 | **Contrasting Calm** | Attack | 1 | Deal 4 damage. Paint 1 Blue. Paint 1 Green. | 4→8 damage; gains Retain. *(Upgrade description text omits damage — possible display bug in original mod.)* |
 | 7 | **Contrasting Clash** | Skill | 1 | Draw 1 card. Paint 1 Red. Paint 1 Blue. | 1→2 cards drawn |
 | 8 | **Contrasting Crush** | Skill | 1 | Gain 3 Block. Paint 1 Red. Paint 1 Green. | 3→6 Block; gains Retain |
 | 9 | **Crushing Canvas** | Attack | 0 | Deal damage. Deals 3 additional damage for ALL your Paintings. | +1 base damage, 3→5 per-Painting bonus |
@@ -263,7 +265,7 @@ The mod adds **86 collectible cards** (22 Common, 44 Uncommon, 20 Rare) plus 5 B
 | 1 | **Accursed Aggression** | Power | 1 | Whenever an enemy attacks you, apply 2 Cursed to it. | Gains Innate |
 | 2 | **Amber Attack** | Attack | 2 | Deal 15 damage. Clear: Paint 1 Yellow. | 15→19 damage |
 | 3 | **Ardent Aqua** | Skill | 1 | Paint 2 Blue. Gain 1 Dexterity. Exhaust. | 1→2 Dexterity |
-| 4 | **Blank Bane** | Skill | 1 | Apply 3 Cursed to ALL enemies. Clear: Add a Gray Gloom into your hand. | 3→4 Cursed; Clear effect becomes "Paint 1 Gray" instead |
+| 4 | **Blank Bane** | Skill | 1 | Apply 3 Cursed to ALL enemies. Clear: Add a Gray Gloom into your hand. | 3→4 Cursed; Clear effect changes from "Add Gray Gloom" to "Paint 1 Gray" |
 | 5 | **Blood Brush** | Power | 0 | Whenever you take unblocked attack damage, Paint 1 random Color. | Gains Innate |
 | 6 | **Blue Burst** | Skill | 1 | Gain 6 Block. Paint 1 Blue. | 6→9 Block |
 | 7 | **Bob's Bin** | Skill | 0 | Exhaust a Painting in your hand to Paint its colors on the Canvas. | Also Darkens the Canvas |
@@ -344,7 +346,7 @@ These 11 card entries exist in the localization JSON but have no corresponding c
 
 | Old ID | Old Name | Description | Likely Replacement |
 |---|---|---|---|
-| AbstractArt | Abstract Art | Exhaust 1 card to Paint Yellow | (separate class `AbstractArt.class` exists — ID collision with `ArtificialArt`) |
+| AbstractArt | Abstract Art | Exhaust 1 card to Paint Yellow | *(Note: there is an active card class `AbstractArt.class` in the mod which maps to card ID `artistmod:AbstractArt` — this localization entry may be its old description before it was repurposed)* |
 | BigBrown | Roseate Rejuvenation | Gain Temp HP. Paint Pink. Exhaust. | *(removed — no equivalent)* |
 | BlueBrews | Blue Brews | End of turn: Paint 1 Blue | *(merged into Growing Greens pattern or removed)* |
 | BluishBludgeon | Bluish Bludgeon | Deal damage to ALL. Clear: Paint 1 Blue | *(removed — similar to Indigo Incapitation)* |
@@ -409,7 +411,7 @@ Powers are persistent buffs/debuffs. All power data extracted from `TheArtist.ja
 |---|---|---|
 | **Cursed** (debuff) | Purple Pain, Cursed Clash, Satanic Surge, Blank Bane, etc. | When you paint a color, the Cursed enemy loses HP equal to Cursed stacks. Reduced by half at the start of your turn. |
 | **Auto-Painter** | Coruscating Corona, Reddening Rampage, Blue Brews, Growing Greens, Gayness Generator | At the end of your turn, Paint N of a specific Color. *(Used by multiple "end of turn paint" power cards)* |
-| **Fantasy Form** | Paint Profusion (card) | Whenever you draw a Painting, draw N card(s). |
+| **Fantasy Form (draw trigger)** | Paint Profusion (card) | Whenever you draw a Painting, draw N card(s). |
 | **Treasure Trove** | Treasure Trove (card) | At the start of your turn, add N random Uncommon card(s) into your hand. |
 | **Blood Brush** | Blood Brush (card) | Whenever you receive attack damage, Paint N random Color(s). |
 | **Hue Huffer** | Hue Huffer (card) | At the end of your turn, Paint N random Color(s) for each Painting played this turn. |
@@ -418,9 +420,9 @@ Powers are persistent buffs/debuffs. All power data extracted from `TheArtist.ja
 | **Growing Greens** | Growing Greens (card) | At the start of your turn, paint N Green. |
 | **Duplicate Drawing** | Duplicate Drawing (card) | This turn, your next N Painting(s) are played twice. |
 | **Satanic Surge** | Satanic Surge (card) | Cursed is not reduced at the start of your next turn. |
-| **Fantasy Form** (alt) | Fantasy Form (card) | When you play a Painting, Paint N of each color on it. |
+| **Fantasy Form (play trigger)** | Fantasy Form (card) | When you play a Painting, Paint N of each color on it. |
 
-> **Note:** There are two distinct powers both named "Fantasy Form" in the localization — one triggers on drawing Paintings (from the card "Paint Profusion"), and one triggers on playing Paintings (from the card "Fantasy Form"). The card names and power names are swapped in the localization file.
+> **Note:** There are two distinct powers both named "Fantasy Form" in the mod's localization data — one triggers on drawing Paintings (sourced from the card "Paint Profusion"), and one triggers on playing Paintings (sourced from the card "Fantasy Form"). The card names and power names appear to be swapped in the original mod's localization file.
 
 ---
 
