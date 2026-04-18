@@ -44,7 +44,7 @@
 | Attribute | Value |
 |---|---|
 | **Name** | The Painter (STS2) / The Artist (STS1) |
-| **Pronoun** | she/her (STS1) — changed to they/them for STS2 |
+| **Pronouns** | she/her (STS1) — changed to they/them for STS2 |
 | **Starting HP** | 70 *(was temporarily raised to 85 during early balancing, then reverted)* |
 | **Color** | White (#ffffff) |
 | **Starting Deck** | 5× Strike, 5× Defend, 1× Neo-Neutralize |
