@@ -1,1 +1,7 @@
-{}
+{
+  "THE_ARCHITECT.talk.PAINTER-PAINTER.0-0r.char": "[i][font_size=22]The Painter stares up at the Architect.[/font_size][/i]",
+  "THE_ARCHITECT.talk.PAINTER-PAINTER.0-0r.next": "Continue",
+  "THE_ARCHITECT.talk.PAINTER-PAINTER.0-1r.ancient": "An artist? How... quaint. Take what you need and move on.",
+  "THE_ARCHITECT.talk.PAINTER-PAINTER.0-attack": "I'll take your colors when I'm done with you."
+}
+
