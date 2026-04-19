@@ -16,10 +16,9 @@ public class HelpingHarsh() : PainterCard(1, CardType.Attack, CardRarity.Uncommo
     {
         await CommonActions.CardAttack(this, play.Target).Execute(ctx);
 
-        // TODO: Present color choice UI (Red, Blue, Green, Purple).
-        // For now, paint Red as placeholder.
+        // Paint a random non-special color (color choice UI pending Godot scene)
         var paintCount = IsUpgraded ? 2 : 1;
-        CanvasManager.Current.PaintColor(PaintColor.Red, paintCount);
+        CanvasManager.Current.PaintColor(PaintColor.Rainbow, paintCount);
     }
 
     protected override void OnUpgrade()

@@ -1,4 +1,8 @@
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using Painter.PainterCode.Canvas;
 
 namespace Painter.PainterCode.Relics;
 
@@ -10,8 +14,16 @@ public class BentBrush : PainterRelic
 {
     public override RelicRarity Rarity => RelicRarity.Starter;
 
-    // The extra-paint logic is driven by CanvasState.FirstPaintSinceReshuffle.
-    // TODO: Hook into the PaintColor flow so that when FirstPaintSinceReshuffle
-    // is true and this relic is owned, one additional color is painted.
-    // Also reset FirstPaintSinceReshuffle = true on draw pile shuffle.
+    public override Task BeforeCombatStart()
+    {
+        CanvasManager.Current.BonusPaintEnabled = true;
+        return Task.CompletedTask;
+    }
+
+    public override Task AfterShuffle(PlayerChoiceContext choiceContext, Player shuffler)
+    {
+        Flash();
+        CanvasManager.Current.FirstPaintSinceReshuffle = true;
+        return Task.CompletedTask;
+    }
 }

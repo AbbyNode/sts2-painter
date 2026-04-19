@@ -14,8 +14,8 @@ public class ColorCopy() : PainterCard(0, CardType.Skill, CardRarity.Common, Tar
 
         if (distinctColors.Count > 0)
         {
-            // TODO: Implement player choice UI for selecting a color
-            var color = distinctColors[0];
+            // Pick a random distinct color from the canvas (color choice UI pending Godot scene)
+            var color = distinctColors[Random.Shared.Next(distinctColors.Count)];
             canvas.PaintColor(color);
         }
 

@@ -13,17 +13,25 @@ public class DuplicateDrawingPower : PainterPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    // When a Painting card is played, it should be played twice.
-    // The decrement and removal is handled here; the actual double-play
-    // needs integration with the card play system.
-    // TODO: Hook into card play to trigger double-play for Painting cards.
+    // When a Painting card is about to be played, set its replay count to double-play it.
+    public override Task BeforeCardPlayed(CardPlay cardPlay)
+    {
+        if (!cardPlay.Card.Keywords.Contains(PainterKeywords.Painting))
+            return Task.CompletedTask;
+
+        if (Amount <= 0)
+            return Task.CompletedTask;
+
+        Flash();
+        cardPlay.Card.BaseReplayCount += 1;
+        return Task.CompletedTask;
+    }
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (!cardPlay.Card.Keywords.Contains(PainterKeywords.Painting))
             return;
 
-        Flash();
         await PowerCmd.Decrement(this);
     }
 
