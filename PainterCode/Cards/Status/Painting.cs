@@ -43,6 +43,7 @@ public class Painting() : PainterCard(1, CardType.Skill, CardRarity.Common, Targ
                 await PowerCmd.Apply<VulnerablePower>(enemy, effects.Vulnerable, Owner.Creature, this);
 
         if (effects.TempHp > 0)
+            // No TempHP API exists in STS2 reference assemblies; using Block as fallback
             await CreatureCmd.GainBlock(Owner.Creature, effects.TempHp, default, play);
 
         if (effects.Energy > 0)
