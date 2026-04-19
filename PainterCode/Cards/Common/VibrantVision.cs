@@ -17,8 +17,7 @@ public class VibrantVision() : PainterCard(1, CardType.Skill, CardRarity.Common,
     {
         CanvasManager.Current.PaintColor(PaintColor.Rainbow);
 
-        if (Owner.Player != null)
-            await CardPileCmd.Draw(ctx, DynamicVars["draw"].IntValue, Owner.Player);
+        await CardPileCmd.Draw(ctx, DynamicVars["draw"].IntValue, Owner);
     }
 
     protected override void OnUpgrade()

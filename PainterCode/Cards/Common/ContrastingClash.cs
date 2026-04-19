@@ -15,9 +15,7 @@ public class ContrastingClash() : PainterCard(1, CardType.Skill, CardRarity.Comm
 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
-        var drawCount = DynamicVars["draw"].IntValue;
-        for (var i = 0; i < drawCount; i++)
-            await CardPileCmd.Draw(ctx, 1, Owner.Player);
+        await CardPileCmd.Draw(ctx, DynamicVars["draw"].IntValue, Owner);
 
         CanvasManager.Current.PaintColor(PaintColor.Red);
         CanvasManager.Current.PaintColor(PaintColor.Blue);

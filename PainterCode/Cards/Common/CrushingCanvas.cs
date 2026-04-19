@@ -12,32 +12,29 @@ public class CrushingCanvas() : PainterCard(0, CardType.Attack, CardRarity.Commo
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(0m, ValueProp.Move),
+        new DamageVar(3m, ValueProp.Move),
         new IntVar("bonus", 3m)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
+        // Deal damage once per Painting card across all piles
         var paintingCount = CountPaintingCards();
-        var bonus = DynamicVars["bonus"].IntValue;
-        var baseDmg = Upgraded ? 1 : 0;
-        DynamicVars.Damage.SetValue(baseDmg + bonus * paintingCount);
-
-        await CommonActions.CardAttack(this, play.Target).Execute(ctx);
+        for (var i = 0; i < Math.Max(1, paintingCount); i++)
+            await CommonActions.CardAttack(this, play.Target).Execute(ctx);
     }
 
     private int CountPaintingCards()
     {
-        var player = Owner.Player;
-        if (player == null) return 0;
-
         var count = 0;
-        foreach (var card in player.Hand)
-            if (card.Keywords.Contains(PainterKeywords.Painting)) count++;
-        foreach (var card in player.DiscardPile)
-            if (card.Keywords.Contains(PainterKeywords.Painting)) count++;
-        foreach (var card in player.DrawPile)
-            if (card.Keywords.Contains(PainterKeywords.Painting)) count++;
+        if (Owner.Creature.CombatState is { } combatState)
+        {
+            foreach (var card in combatState.IterateHookListeners().OfType<CardModel>())
+            {
+                if (card.Keywords.Contains(PainterKeywords.Painting))
+                    count++;
+            }
+        }
         return count;
     }
 

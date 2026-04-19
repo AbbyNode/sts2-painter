@@ -21,11 +21,14 @@ public class PlayfulPurple() : PainterCard(1, CardType.Skill, CardRarity.Common,
 
         canvas.PaintColor(PaintColor.Purple, basePaint);
 
-        var enemies = CombatState.GetCreaturesOnSide(CombatSide.Enemy);
-        foreach (var enemy in enemies)
+        var enemies = CombatState?.GetCreaturesOnSide(CombatSide.Enemy);
+        if (enemies != null)
         {
-            if (enemy.HasPower<CursedPower>())
-                canvas.PaintColor(PaintColor.Purple);
+            foreach (var enemy in enemies)
+            {
+                if (enemy.HasPower<CursedPower>())
+                    canvas.PaintColor(PaintColor.Purple);
+            }
         }
 
         return Task.CompletedTask;

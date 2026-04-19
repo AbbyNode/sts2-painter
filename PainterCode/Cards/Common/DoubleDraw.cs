@@ -1,6 +1,7 @@
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -15,21 +16,17 @@ public class DoubleDraw() : PainterCard(1, CardType.Attack, CardRarity.Common, T
 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
-        await CommonActions.CardAttack(this, play.Target).Execute(ctx);
-        await CommonActions.CardAttack(this, play.Target).Execute(ctx);
+        await CommonActions.CardAttack(this, play.Target).WithHitCount(2).Execute(ctx);
 
-        var player = Owner.Player;
-        if (player != null)
+        var discardPile = PileType.Discard.GetPile(Owner);
+        var paintings = discardPile.Cards
+            .Where(c => c.Keywords.Contains(PainterKeywords.Painting))
+            .ToList();
+
+        if (paintings.Count > 0)
         {
-            var paintings = player.DiscardPile
-                .Where(c => c.Keywords.Contains(PainterKeywords.Painting))
-                .ToList();
-
-            if (paintings.Count > 0)
-            {
-                var randomPainting = paintings[Random.Shared.Next(paintings.Count)];
-                await CardPileCmd.MoveCard(ctx, randomPainting, player.Hand, player);
-            }
+            var randomPainting = paintings[Random.Shared.Next(paintings.Count)];
+            await CardPileCmd.Add(randomPainting, PileType.Hand, CardPilePosition.None, this);
         }
     }
 

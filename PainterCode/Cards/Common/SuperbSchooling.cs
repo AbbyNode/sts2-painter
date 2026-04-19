@@ -21,10 +21,10 @@ public class SuperbSchooling() : PainterCard(1, CardType.Skill, CardRarity.Commo
     {
         await CommonActions.CardBlock(this, play);
 
-        if (CanvasManager.Current.IsChromatic && Owner.Player != null)
+        if (CanvasManager.Current.IsChromatic)
         {
             var drawCount = DynamicVars["draw"].IntValue;
-            await CardPileCmd.Draw(ctx, drawCount, Owner.Player);
+            await CardPileCmd.Draw(ctx, drawCount, Owner);
         }
     }
 

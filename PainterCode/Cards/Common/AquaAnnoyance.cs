@@ -20,7 +20,8 @@ public class AquaAnnoyance() : PainterCard(1, CardType.Skill, CardRarity.Common,
 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
-        await PowerCmd.Apply<WeakPower>(play.Target, DynamicVars["weak"].IntValue, Owner.Creature, this);
+        if (play.Target != null)
+            await PowerCmd.Apply<WeakPower>(play.Target, DynamicVars["weak"].IntValue, Owner.Creature, this);
         CanvasManager.Current.PaintColor(PaintColor.Aqua, DynamicVars["paint"].IntValue);
     }
 

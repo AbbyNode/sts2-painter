@@ -21,9 +21,10 @@ public class RedRazzing() : PainterCard(1, CardType.Skill, CardRarity.Common, Ta
 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
-        var enemies = CombatState.GetCreaturesOnSide(CombatSide.Enemy);
-        foreach (var enemy in enemies)
-            await PowerCmd.Apply<VulnerablePower>(enemy, DynamicVars["vuln"].IntValue, Owner.Creature, this);
+        var enemies = CombatState?.GetCreaturesOnSide(CombatSide.Enemy);
+        if (enemies != null)
+            foreach (var enemy in enemies)
+                await PowerCmd.Apply<VulnerablePower>(enemy, DynamicVars["vuln"].IntValue, Owner.Creature, this);
 
         if (CanvasManager.Current.IsClear)
             CanvasManager.Current.PaintColor(PaintColor.Red, DynamicVars["paint"].IntValue);

@@ -20,7 +20,8 @@ public class MagentaMadness() : PainterCard(1, CardType.Skill, CardRarity.Common
 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
-        await PowerCmd.Apply<VulnerablePower>(play.Target, DynamicVars["vuln"].IntValue, Owner.Creature, this);
+        if (play.Target != null)
+            await PowerCmd.Apply<VulnerablePower>(play.Target, DynamicVars["vuln"].IntValue, Owner.Creature, this);
         CanvasManager.Current.PaintColor(PaintColor.Magenta, DynamicVars["paint"].IntValue);
     }
 

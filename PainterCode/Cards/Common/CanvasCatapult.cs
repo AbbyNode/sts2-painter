@@ -1,6 +1,7 @@
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -16,23 +17,20 @@ public class CanvasCatapult() : PainterCard(1, CardType.Attack, CardRarity.Commo
     {
         await CommonActions.CardAttack(this, play.Target).Execute(ctx);
 
-        var hand = Owner.Player?.Hand;
-        if (hand == null || hand.Count <= 0)
-            return;
-
-        if (Upgraded)
+        if (IsUpgraded)
         {
-            var selected = await CommonActions.SelectSingleCard(ctx, hand, Owner.Player);
+            var selected = await CommonActions.SelectSingleCard(this, new("", "PAINTER-CANVASCATAPULT.select"), ctx, PileType.Hand);
             if (selected != null)
-                await CardPileCmd.Exhaust(ctx, selected, Owner.Player);
+                await CardPileCmd.Add(selected, PileType.Exhaust, CardPilePosition.None, this);
         }
         else
         {
-            var candidates = hand.Where(c => c != this).ToList();
+            var hand = PileType.Hand.GetPile(Owner);
+            var candidates = hand.Cards.Where(c => c != this).ToList();
             if (candidates.Count > 0)
             {
                 var randomCard = candidates[Random.Shared.Next(candidates.Count)];
-                await CardPileCmd.Exhaust(ctx, randomCard, Owner.Player);
+                await CardPileCmd.Add(randomCard, PileType.Exhaust, CardPilePosition.None, this);
             }
         }
     }

@@ -20,11 +20,8 @@ public class PrismaticPierce() : PainterCard(1, CardType.Attack, CardRarity.Comm
         for (var i = 0; i < distinctColors; i++)
             await CommonActions.CardAttack(this, play.Target).Execute(ctx);
 
-        if (Owner.Player != null)
-        {
-            for (var i = 0; i < distinctColors; i++)
-                await CardPileCmd.Draw(ctx, 1, Owner.Player);
-        }
+        for (var i = 0; i < distinctColors; i++)
+            await CardPileCmd.Draw(ctx, 1, Owner);
     }
 
     protected override void OnUpgrade()

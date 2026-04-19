@@ -20,7 +20,8 @@ public class CursedClash() : PainterCard(1, CardType.Attack, CardRarity.Common, 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
         await CommonActions.CardAttack(this, play.Target).Execute(ctx);
-        await PowerCmd.Apply<CursedPower>(play.Target, DynamicVars["cursed"].IntValue, Owner.Creature, this);
+        if (play.Target != null)
+            await PowerCmd.Apply<CursedPower>(play.Target, DynamicVars["cursed"].IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

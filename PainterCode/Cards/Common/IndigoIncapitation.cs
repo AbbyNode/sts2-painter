@@ -21,9 +21,10 @@ public class IndigoIncapitation() : PainterCard(1, CardType.Skill, CardRarity.Co
 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
-        var enemies = CombatState.GetCreaturesOnSide(CombatSide.Enemy);
-        foreach (var enemy in enemies)
-            await PowerCmd.Apply<WeakPower>(enemy, DynamicVars["weak"].IntValue, Owner.Creature, this);
+        var enemies = CombatState?.GetCreaturesOnSide(CombatSide.Enemy);
+        if (enemies != null)
+            foreach (var enemy in enemies)
+                await PowerCmd.Apply<WeakPower>(enemy, DynamicVars["weak"].IntValue, Owner.Creature, this);
 
         if (CanvasManager.Current.IsClear)
             CanvasManager.Current.PaintColor(PaintColor.Blue, DynamicVars["paint"].IntValue);
