@@ -185,5 +185,10 @@
   "PAINTER-VERDANT_VAINGLORY.title": "Verdant Vainglory",
   "PAINTER-VERDANT_VAINGLORY.description": "Draw cards until your hand is full. NL Paint !paint! Green. NL Exhaust.",
   "PAINTER-YELLOW_YOWLING.title": "Yellow Yowling",
-  "PAINTER-YELLOW_YOWLING.description": "Paint !gray! Gray. NL Paint !yellow! Yellow. NL Exhaust."
+  "PAINTER-YELLOW_YOWLING.description": "Paint !gray! Gray. NL Paint !yellow! Yellow. NL Exhaust.",
+
+  "PAINTER-GRAY_GLOOM.title": "Gray Gloom",
+  "PAINTER-GRAY_GLOOM.description": "Add !wounds! Wound(s) into your hand. NL Paint 1 Gray.",
+  "PAINTER-PAINTING.title": "Painting",
+  "PAINTER-PAINTING.description": "A dynamically created Painting card based on the Canvas."
 }

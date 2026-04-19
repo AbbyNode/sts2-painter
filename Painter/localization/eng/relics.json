@@ -1,1 +1,14 @@
-{}
+{
+  "PAINTER-BENT_BRUSH.title": "Bent Brush",
+  "PAINTER-BENT_BRUSH.description": "The first time you Paint each combat, Paint 1 more of that Color. Refreshes whenever you shuffle your draw pile.",
+  "PAINTER-BENT_BRUSH.flavor": "A trusty tool, slightly warped by years of use.",
+  "PAINTER-BROKEN_BRUSH.title": "Broken Brush",
+  "PAINTER-BROKEN_BRUSH.description": "Gain [E] at the start of your turn. NL At the end of your turn, remove all Colors on the Canvas.",
+  "PAINTER-BROKEN_BRUSH.flavor": "Shattered, yet still channeling raw creative energy.",
+  "PAINTER-REPAIRED_BRUSH.title": "Repaired Brush",
+  "PAINTER-REPAIRED_BRUSH.description": "At the start of each combat, Darken the Canvas.",
+  "PAINTER-REPAIRED_BRUSH.flavor": "Mended with care, it hums with a deeper power.",
+  "PAINTER-BRILLIANT_BRUSH.title": "Brilliant Brush",
+  "PAINTER-BRILLIANT_BRUSH.description": "When you Paint a random Color, Paint an additional one.",
+  "PAINTER-BRILLIANT_BRUSH.flavor": "Every stroke reveals a hidden spectrum."
+}

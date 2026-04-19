@@ -1,4 +1,4 @@
-using MegaCrit.Sts2.Core.Models.Relics;
+using MegaCrit.Sts2.Core.Entities.Relics;
 
 namespace Painter.PainterCode.Relics;
 

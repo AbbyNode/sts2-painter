@@ -1,5 +1,7 @@
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Potions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using Painter.PainterCode.Powers;
@@ -12,15 +14,14 @@ namespace Painter.PainterCode.Potions;
 public class CursedPotion : PainterPotion
 {
     public override PotionRarity Rarity => PotionRarity.Rare;
+    public override PotionUsage Usage => PotionUsage.CombatOnly;
+    public override TargetType TargetType => TargetType.AnyEnemy;
 
     private const int CursedAmount = 6;
 
-    public override async Task OnUse(PlayerChoiceContext ctx)
+    protected override async Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
-        // TODO: Implement target selection and apply Cursed to selected enemy.
-        // The exact potion target selection and CombatState access API needs to be
-        // identified from CustomPotionModel. Expected usage:
-        // await PowerCmd.Apply<CursedPower>(target, CursedAmount, ownerCreature, this);
-        await Task.CompletedTask;
+        if (target != null)
+            await PowerCmd.Apply<CursedPower>(target, CursedAmount, Owner.Creature, null);
     }
 }

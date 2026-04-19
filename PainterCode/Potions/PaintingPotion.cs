@@ -1,5 +1,7 @@
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Potions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Models;
 
 namespace Painter.PainterCode.Potions;
 
@@ -9,8 +11,10 @@ namespace Painter.PainterCode.Potions;
 public class PaintingPotion : PainterPotion
 {
     public override PotionRarity Rarity => PotionRarity.Common;
+    public override PotionUsage Usage => PotionUsage.CombatOnly;
+    public override TargetType TargetType => TargetType.Self;
 
-    public override Task OnUse(PlayerChoiceContext ctx)
+    protected override Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
         // TODO: Create a Painting card from the current canvas state and add it to hand.
         // Use CombatState.CreateCard and CardPileCmd.AddGeneratedCardToCombat
