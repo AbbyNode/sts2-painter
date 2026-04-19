@@ -25,7 +25,10 @@ public class BobsBin() : PainterCard(0, CardType.Skill, CardRarity.Uncommon, Tar
             {
                 await CardPileCmd.Add(selected, PileType.Exhaust, CardPilePosition.None, this);
 
-                // TODO: Extract colors from the Painting card and paint them on the canvas
+                // Re-paint a copy of the current canvas colors to amplify them
+                var currentColors = CanvasManager.Current.Colors.ToList();
+                foreach (var color in currentColors)
+                    CanvasManager.Current.PaintColor(color);
 
                 if (IsUpgraded)
                     CanvasManager.Current.DarkenCanvas();

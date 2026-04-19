@@ -19,8 +19,7 @@ public class PaintPotion : PainterPotion
 
     protected override Task OnUse(PlayerChoiceContext choiceContext, Creature? target)
     {
-        // TODO: Present a color-selection UI and let the player choose 3 colors to paint.
-        // For now, paint 3 random (Rainbow) colors as a placeholder.
+        // Paint 3 random colors (color choice UI pending Godot scene)
         CanvasManager.Current.PaintColor(PaintColor.Rainbow, ColorsToPaint);
         return Task.CompletedTask;
     }

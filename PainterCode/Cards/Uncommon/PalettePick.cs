@@ -14,9 +14,8 @@ public class PalettePick() : PainterCard(1, CardType.Skill, CardRarity.Uncommon,
 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
-        // TODO: Present color choice UI to the player.
-        // For now, paint a placeholder color (Red).
-        var chosenColor = PaintColor.Red;
+        // Paint a random non-special color (color choice UI pending Godot scene)
+        var chosenColor = PaintColor.Rainbow;
 
         CanvasManager.Current.PaintColor(chosenColor, DynamicVars["paint"].IntValue);
 

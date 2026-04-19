@@ -1,11 +1,11 @@
 using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
+using Painter.PainterCode.Cards.Basic;
 using Painter.PainterCode.Extensions;
+using Painter.PainterCode.Relics;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.Models.Relics;
 
 namespace Painter.PainterCode.Character;
 
@@ -20,21 +20,21 @@ public class Painter : PlaceholderCharacterModel
     public override int StartingHp => 70;
     
     public override IEnumerable<CardModel> StartingDeck => [
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<StrikeIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>(),
-        ModelDb.Card<DefendIronclad>()
+        ModelDb.Card<StrikingStroke>(),
+        ModelDb.Card<StrikingStroke>(),
+        ModelDb.Card<StrikingStroke>(),
+        ModelDb.Card<StrikingStroke>(),
+        ModelDb.Card<PaletteParry>(),
+        ModelDb.Card<PaletteParry>(),
+        ModelDb.Card<PaletteParry>(),
+        ModelDb.Card<PaletteParry>(),
+        ModelDb.Card<BrushBash>(),
+        ModelDb.Card<NeoNeutralize>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>
     [
-        ModelDb.Relic<BurningBlood>()
+        ModelDb.Relic<BentBrush>()
     ];
     
     public override CardPoolModel CardPool => ModelDb.CardPool<PainterCardPool>();

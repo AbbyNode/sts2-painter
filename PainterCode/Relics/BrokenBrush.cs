@@ -1,4 +1,5 @@
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using Painter.PainterCode.Canvas;
@@ -13,16 +14,14 @@ public class BrokenBrush : PainterRelic
 {
     public override RelicRarity Rarity => RelicRarity.Rare;
 
-    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
+    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side,
         CombatState combatState)
     {
         if (side != CombatSide.Player)
-            return Task.CompletedTask;
+            return;
 
         Flash();
-        // TODO: Grant 1 Energy via the appropriate energy API
-        // e.g. await EnergyCmd.GainEnergy(choiceContext, 1);
-        return Task.CompletedTask;
+        await PlayerCmd.GainEnergy(1, Owner);
     }
 
     public override Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)

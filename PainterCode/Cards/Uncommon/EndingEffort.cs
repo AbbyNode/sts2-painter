@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -15,7 +16,7 @@ public class EndingEffort() : PainterCard(1, CardType.Skill, CardRarity.Uncommon
     {
         CanvasManager.Current.PaintColor(PaintColor.Yellow, DynamicVars["paint"].IntValue);
 
-        // TODO: End turn effect
+        PlayerCmd.EndTurn(Owner, false);
         return Task.CompletedTask;
     }
 

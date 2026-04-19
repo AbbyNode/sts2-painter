@@ -1,5 +1,7 @@
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using Painter.PainterCode.Canvas;
 
@@ -9,15 +11,16 @@ public class IndiaInk() : PainterCard(0, CardType.Skill, CardRarity.Rare, Target
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
-    protected override Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new IntVar("energy", 1m)];
+
+    protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
-        // TODO: Gain 1 Energy (2 if upgraded) once energy command API is available
+        await PlayerCmd.GainEnergy(DynamicVars["energy"].IntValue, Owner);
         CanvasManager.Current.DarkenCanvas();
-        return Task.CompletedTask;
     }
 
     protected override void OnUpgrade()
     {
-        // Upgrade: Gain 2 Energy instead of 1 (handled in OnPlay TODO)
+        DynamicVars["energy"].UpgradeValueBy(1m);
     }
 }

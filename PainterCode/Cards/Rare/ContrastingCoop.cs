@@ -18,6 +18,6 @@ public class ContrastingCoop() : PainterCard(1, CardType.Skill, CardRarity.Rare,
     protected override void OnUpgrade()
     {
         AddKeyword(CardKeyword.Retain);
-        // TODO: Reduce cost to 0 once cost upgrade API is available
+        EnergyCost.UpgradeBy(-1);
     }
 }

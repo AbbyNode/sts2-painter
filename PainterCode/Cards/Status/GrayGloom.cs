@@ -1,8 +1,10 @@
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 using Painter.PainterCode.Canvas;
 
 namespace Painter.PainterCode.Cards.Status;
@@ -15,9 +17,8 @@ public class GrayGloom() : PainterCard(1, CardType.Skill, CardRarity.Common, Tar
 
     protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
-        // TODO: Create Wound cards and add them to hand
-        // e.g. for (var i = 0; i < DynamicVars["wounds"].IntValue; i++)
-        //     await CardPileCmd.AddGeneratedCardToCombat(...Wound..., PileType.Hand, ...);
+        var woundCount = DynamicVars["wounds"].IntValue;
+        await CardPileCmd.AddToCombatAndPreview<Wound>(Owner.Creature, PileType.Hand, woundCount, false);
 
         CanvasManager.Current.PaintColor(PaintColor.Gray);
     }

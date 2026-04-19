@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using Painter.PainterCode.Canvas;
+using Painter.PainterCode.Cards.Status;
 
 namespace Painter.PainterCode.Cards.Uncommon;
 
@@ -19,8 +20,8 @@ public class SimpleStudies() : PainterCard(1, CardType.Skill, CardRarity.Uncommo
 
         if (CanvasManager.Current.IsChromatic)
         {
-            // TODO: Shuffle a copy of the Canvas (Painting card) into draw pile
-            // once the Painting card generation system is available.
+            var painting = CombatState!.CreateCard<Painting>(Owner);
+            await CardPileCmd.AddGeneratedCardToCombat(painting, PileType.Draw, true, CardPilePosition.Random);
         }
     }
 

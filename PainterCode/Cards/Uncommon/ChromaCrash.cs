@@ -19,7 +19,7 @@ public class ChromaCrash() : PainterCard(1, CardType.Attack, CardRarity.Uncommon
 
         if (CanvasManager.Current.IsChromatic)
         {
-            // TODO: Gain 1 Energy once energy command is available
+            await PlayerCmd.GainEnergy(1, Owner);
             await CardPileCmd.Draw(ctx, 1, Owner);
         }
     }

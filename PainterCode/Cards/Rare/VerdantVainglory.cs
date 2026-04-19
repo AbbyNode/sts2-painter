@@ -28,6 +28,6 @@ public class VerdantVainglory() : PainterCard(2, CardType.Skill, CardRarity.Rare
 
     protected override void OnUpgrade()
     {
-        // TODO: Reduce cost to 1 once cost upgrade API is available
+        EnergyCost.UpgradeBy(-1);
     }
 }

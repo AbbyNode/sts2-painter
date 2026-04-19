@@ -1,4 +1,5 @@
 using MegaCrit.Sts2.Core.Entities.Relics;
+using Painter.PainterCode.Canvas;
 
 namespace Painter.PainterCode.Relics;
 
@@ -9,6 +10,9 @@ public class BrilliantBrush : PainterRelic
 {
     public override RelicRarity Rarity => RelicRarity.Rare;
 
-    // TODO: Hook into CanvasState.PaintColor's Rainbow resolution so that
-    // when a Rainbow color is resolved, an extra random color is painted.
+    public override Task BeforeCombatStart()
+    {
+        CanvasManager.Current.ExtraRainbowEnabled = true;
+        return Task.CompletedTask;
+    }
 }

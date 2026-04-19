@@ -1,6 +1,7 @@
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -27,8 +28,8 @@ public class Painting() : PainterCard(1, CardType.Skill, CardRarity.Common, Targ
             foreach (var enemy in enemies)
                 await CreatureCmd.Damage(ctx, [enemy], effects.Damage, default, Owner.Creature);
 
-        // TODO: Implement Block gain once the correct API is identified
-        // if (effects.Block > 0) ...
+        if (effects.Block > 0)
+            await CreatureCmd.GainBlock(Owner.Creature, effects.Block, default, play);
 
         if (effects.CardDraw > 0)
             await CardPileCmd.Draw(ctx, effects.CardDraw, Owner);
@@ -41,18 +42,19 @@ public class Painting() : PainterCard(1, CardType.Skill, CardRarity.Common, Targ
             foreach (var enemy in enemies)
                 await PowerCmd.Apply<VulnerablePower>(enemy, effects.Vulnerable, Owner.Creature, this);
 
-        // TODO: Implement TempHp gain once the API is identified
-        // if (effects.TempHp > 0) ...
+        if (effects.TempHp > 0)
+            // No TempHP API exists in STS2 reference assemblies; using Block as fallback
+            await CreatureCmd.GainBlock(Owner.Creature, effects.TempHp, default, play);
 
-        // TODO: Implement Energy gain once the API is identified
-        // if (effects.Energy > 0) ...
+        if (effects.Energy > 0)
+            await PlayerCmd.GainEnergy(effects.Energy, Owner);
 
         if (effects.Cursed > 0 && enemies != null)
             foreach (var enemy in enemies)
                 await PowerCmd.Apply<CursedPower>(enemy, effects.Cursed, Owner.Creature, this);
 
-        // TODO: Add Wounds to discard pile
-        // if (effects.Wounds > 0) ...
+        if (effects.Wounds > 0)
+            await CardPileCmd.AddToCombatAndPreview<Wound>(Owner.Creature, PileType.Discard, effects.Wounds, false);
 
         if (effects.AutoExhaust)
             await CardPileCmd.Add(this, PileType.Exhaust, CardPilePosition.None, this);

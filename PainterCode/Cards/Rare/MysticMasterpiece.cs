@@ -1,6 +1,8 @@
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using Painter.PainterCode.Cards.Status;
 
 namespace Painter.PainterCode.Cards.Rare;
 
@@ -8,16 +10,14 @@ public class MysticMasterpiece() : PainterCard(3, CardType.Skill, CardRarity.Rar
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
 
-    protected override Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
+    protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
     {
-        // TODO: Permanently add a Painting based on the Canvas to your deck.
-        // Fleeting: the card is removed at end of combat.
-        return Task.CompletedTask;
+        var painting = CombatState!.CreateCard<Painting>(Owner);
+        await CardPileCmd.AddGeneratedCardToCombat(painting, PileType.Hand, true);
     }
 
     protected override void OnUpgrade()
     {
-        // TODO: Reduce cost to 1 once cost upgrade API is available
-        // Upgrade also adds Grave keyword (Ethereal + Grave)
+        EnergyCost.UpgradeBy(-2);
     }
 }

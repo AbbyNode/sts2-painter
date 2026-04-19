@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -18,7 +19,7 @@ public class ColoredCollision() : PainterCard(2, CardType.Attack, CardRarity.Unc
 
         if (CanvasManager.Current.IsChromatic)
         {
-            // TODO: Gain Energy once energy command is available
+            await PlayerCmd.GainEnergy(1, Owner);
         }
     }
 

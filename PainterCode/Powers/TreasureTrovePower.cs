@@ -13,18 +13,28 @@ public class TreasureTrovePower : PainterPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext,
+    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext,
         CombatState combatState)
     {
         if (Owner.Player != player)
-            return Task.CompletedTask;
+            return;
 
         Flash();
 
-        // TODO: Generate random Uncommon cards and add to hand.
-        // Use CombatState.CreateCard and CardPileCmd.AddGeneratedCardToCombat
-        // to add random Uncommon cards from the player's card pool to hand.
+        // Generate Amount random Uncommon cards from the card pool and add to hand
+        var cardPool = player.Character.CardPool;
+        var uncommonCards = cardPool.AllCards
+            .Where(c => c.Rarity == CardRarity.Uncommon)
+            .ToList();
 
-        return Task.CompletedTask;
+        if (uncommonCards.Count == 0)
+            return;
+
+        for (var i = 0; i < Amount; i++)
+        {
+            var randomCard = uncommonCards[Random.Shared.Next(uncommonCards.Count)];
+            var newCard = combatState.CreateCard(randomCard, player);
+            await CardPileCmd.AddGeneratedCardToCombat(newCard, PileType.Hand, true);
+        }
     }
 }
