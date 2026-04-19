@@ -1,0 +1,20 @@
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Models;
+using Painter.PainterCode.Powers;
+
+namespace Painter.PainterCode.Cards.Rare;
+
+public class FantasyForm() : PainterCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
+{
+    protected override async Task OnPlay(PlayerChoiceContext ctx, CardPlay play)
+    {
+        await PowerCmd.Apply<FantasyFormPower>(Owner.Creature, 1, Owner.Creature, this);
+    }
+
+    protected override void OnUpgrade()
+    {
+        // TODO: Reduce cost to 2 once cost upgrade API is available
+    }
+}
