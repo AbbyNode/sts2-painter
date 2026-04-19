@@ -17,6 +17,6 @@ public class EnjoyedEpiphany() : PainterCard(1, CardType.Skill, CardRarity.Uncom
 
     protected override void OnUpgrade()
     {
-        // TODO: Reduce cost to 0 once cost upgrade API is available
+        EnergyCost.UpgradeBy(-1);
     }
 }

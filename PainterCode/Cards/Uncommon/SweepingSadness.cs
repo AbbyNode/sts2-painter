@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using Painter.PainterCode.Cards.Status;
 using Painter.PainterCode.Powers;
 
 namespace Painter.PainterCode.Cards.Uncommon;
@@ -27,7 +28,8 @@ public class SweepingSadness() : PainterCard(2, CardType.Skill, CardRarity.Uncom
             foreach (var enemy in enemies)
                 await PowerCmd.Apply<CursedPower>(enemy, DynamicVars["cursed"].IntValue, Owner.Creature, this);
 
-        // TODO: Add a Gray Gloom status card into hand once the status card class is created
+        var grayGloom = CombatState!.CreateCard<GrayGloom>(Owner);
+        await CardPileCmd.AddGeneratedCardToCombat(grayGloom, PileType.Hand, false);
     }
 
     protected override void OnUpgrade()

@@ -15,6 +15,6 @@ public class FantasyForm() : PainterCard(3, CardType.Power, CardRarity.Rare, Tar
 
     protected override void OnUpgrade()
     {
-        // TODO: Reduce cost to 2 once cost upgrade API is available
+        EnergyCost.UpgradeBy(-1);
     }
 }

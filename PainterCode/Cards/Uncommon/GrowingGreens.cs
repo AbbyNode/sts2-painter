@@ -15,6 +15,6 @@ public class GrowingGreens() : PainterCard(2, CardType.Power, CardRarity.Uncommo
 
     protected override void OnUpgrade()
     {
-        // TODO: Reduce cost to 1 once cost upgrade API is available
+        EnergyCost.UpgradeBy(-1);
     }
 }

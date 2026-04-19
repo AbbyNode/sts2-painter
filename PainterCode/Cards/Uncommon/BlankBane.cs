@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using Painter.PainterCode.Canvas;
+using Painter.PainterCode.Cards.Status;
 using Painter.PainterCode.Powers;
 
 namespace Painter.PainterCode.Cards.Uncommon;
@@ -29,7 +30,8 @@ public class BlankBane() : PainterCard(1, CardType.Skill, CardRarity.Uncommon, T
             }
             else
             {
-                // TODO: Generate GrayGloom card and add to hand once the status card class is created
+                var grayGloom = CombatState!.CreateCard<GrayGloom>(Owner);
+                await CardPileCmd.AddGeneratedCardToCombat(grayGloom, PileType.Hand, false);
             }
         }
     }

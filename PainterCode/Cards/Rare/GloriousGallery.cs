@@ -27,6 +27,6 @@ public class GloriousGallery() : PainterCard(3, CardType.Skill, CardRarity.Rare,
 
     protected override void OnUpgrade()
     {
-        // TODO: Reduce cost to 2 once cost upgrade API is available
+        EnergyCost.UpgradeBy(-1);
     }
 }
