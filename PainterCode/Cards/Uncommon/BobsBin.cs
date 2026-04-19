@@ -25,13 +25,10 @@ public class BobsBin() : PainterCard(0, CardType.Skill, CardRarity.Uncommon, Tar
             {
                 await CardPileCmd.Add(selected, PileType.Exhaust, CardPilePosition.None, this);
 
-                // Paint the colors from the exhausted Painting onto the Canvas
-                var canvas = CanvasManager.Current;
-                var canvasState = canvas;
                 // TODO: Extract colors from the Painting card and paint them on the canvas
 
                 if (IsUpgraded)
-                    canvas.DarkenCanvas();
+                    CanvasManager.Current.DarkenCanvas();
             }
         }
     }
