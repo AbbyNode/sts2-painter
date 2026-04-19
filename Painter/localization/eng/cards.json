@@ -1,1 +1,12 @@
-{}
+{
+  "PAINTER-STRIKING_STROKE.title": "Striking Stroke",
+  "PAINTER-STRIKING_STROKE.description": "Deal !D! damage.",
+  "PAINTER-PALETTE_PARRY.title": "Palette Parry",
+  "PAINTER-PALETTE_PARRY.description": "Gain !B! Block.",
+  "PAINTER-BRUSH_BASH.title": "Brush Bash",
+  "PAINTER-BRUSH_BASH.description": "Deal !D! damage. NL Paint !paint! Red.",
+  "PAINTER-NEO_NEUTRALIZE.title": "Neo Neutralize",
+  "PAINTER-NEO_NEUTRALIZE.description": "Deal !D! damage. NL Paint !paint! Blue.",
+  "PAINTER-DARKEN_DRAWING.title": "Darken Drawing",
+  "PAINTER-DARKEN_DRAWING.description": "Darken the Canvas."
+}
